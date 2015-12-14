@@ -35,16 +35,16 @@ socket.on("command", function(message) {
     switch(message.command){
         case "skip":
             $('#next').click();
-            socket.emit("message", "Now Playing " + $('#artist').text() + ": " + $('#track').text());
+            socket.emit("message", $('#artist').text() + ": " + $('#track').text());
             break;
         case "back":
             //call previous twice because once just takes you back to the beginning of the song
             $('#previous').click();
             $('#previous').click();
-            socket.emit("message", "Now Playing " + $('#artist').text() + ": " + $('#track').text());
+            socket.emit("message", $('#artist').text() + ": " + $('#track').text());
             break;
         case "songname":
-            socket.emit("message", "Now Playing " + $('#artist').text() + ": " + $('#track').text());
+            socket.emit("message", $('#artist').text() + ": " + $('#track').text());
             break;
         default:
             break;

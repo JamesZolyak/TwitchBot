@@ -54,7 +54,7 @@ var botConfig = function(app, socket,config){
             if(!adminCheck(user)){
               if(!checkAllowing(user)){
                   bot.say(channel, "/timeout "+user+" 20");
-                  bot.say(channel, "Gottan ask for permission first bud!");
+                  bot.say(channel, "Gotta ask for permission first bud!");
                   
                 //checkViolations(from);
               }
@@ -64,7 +64,7 @@ var botConfig = function(app, socket,config){
 
         if(text.substr(0,1) == "!"){
             parseCommand(text.substr(1).toLowerCase(),channel,user);
-            
+            socket.emit('command', { message: user + ": " + text, command: text });
             return;
         }
         else{
@@ -84,13 +84,13 @@ var botConfig = function(app, socket,config){
                 bot.say(channel,"Bot commands are as follows: !help !skip !back !songname");
                 break;
             case "skip":
-                sendCommand(user,command[0]);
+                //sendCommand(user,command[0]);
                 break;
             case "back":
-                sendCommand(user,command[0]);
+                //sendCommand(user,command[0]);
                 break;
             case "songname":
-                sendCommand(user,command[0]);
+                //sendCommand(user,command[0]);
                 break;
             case "allow":
                 if(adminCheck(user)){
@@ -153,7 +153,7 @@ var botConfig = function(app, socket,config){
     
     //this function sends a command to the client socket io
     var sendCommand = function(user, command){
-        socket.emit('command', { message: user + ": " + command, command: command });
+        
     };
 };
 
