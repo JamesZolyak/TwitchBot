@@ -15,7 +15,7 @@ var botConfig = function(app, socket,config){
     });   
     
     socket.on("message", function(message){
-        bot.say(config.channels[0], message);
+        bot.say(config.channels, message);
     });
     
     //listens for when users join the chat 
@@ -84,13 +84,13 @@ var botConfig = function(app, socket,config){
                 bot.say(channel,"Bot commands are as follows: !help !skip !back !songname");
                 break;
             case "skip":
-                sendCommand(user,command);
+                sendCommand(user,command[0]);
                 break;
             case "back":
-                sendCommand(user,command);
+                sendCommand(user,command[0]);
                 break;
             case "songname":
-                sendCommand(user,command);
+                sendCommand(user,command[0]);
                 break;
             case "allow":
                 if(adminCheck(user)){
@@ -153,8 +153,8 @@ var botConfig = function(app, socket,config){
     
     //this function sends a command to the client socket io
     var sendCommand = function(user, command){
-        socket.emit('command', { message: user + ": " + text, command: command });
-    }
+        socket.emit('command', { message: user + ": " + command, command: command });
+    };
 };
 
 module.exports = botConfig;
