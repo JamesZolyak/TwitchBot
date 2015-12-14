@@ -1,0 +1,73 @@
+head
+    <script type="text/javascript" src="./../../socket.io/socket.io.js"></script>
+    script(type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js')
+    
+    script(type='text/javascript' src='/assets/jquery-1.5.1.min.js')
+    script(type='text/javascript' src='/assets/token.js')
+    script(type='text/javascript' src='/assets/hello.js')
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/account.css")
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    a(href="/login")
+      img#logo(src="/assets/img/face.png", alt="face logo")
+    .navlink
+      a(href="/logout") Logout
+      a(href="/viewlogs") View login times
+  div#login
+    div Hello #{user.displayName}!
+    textarea#chat(type='text', rows="40", cols="70", wrap="hard", readonly='true')
+    p User #{user._raw}
+  div#lead
+    .container
+      #apiswf
+      .well(style='overflow: hidden;')
+        .row(style='margin-bottom: 10px;')
+          .col-md-2 Enter a Play Key
+          .col-md-10
+            input#play_key.form-control(value='tp257748020')
+        .row
+          .col-md-6
+            .playControls.btn-group
+              button#play.btn.btn-default
+                i.fa.fa-play-circle
+                |  Play
+              button#stop.btn.btn-default
+                i.fa.fa-stop
+                |  Stop
+              button#pause.btn.btn-default
+                i.fa.fa-pause
+                |  Pause
+              button#previous.btn.btn-default
+                i.fa.fa-step-backward
+                |  Previous
+              button#next.btn.btn-default
+                i.fa.fa-step-forward
+                |  Next
+          .col-md-6
+            #freq.frequency
+              div
+              div
+              div
+              div
+              div
+              div
+              div
+              div
+              div
+              div
+      .row.well
+        .artistAlbumInfo.well.col-md-6
+          h3
+            span#artist
+            |  - 
+            span#track
+        .col-md-6
+          h3#album
+          h4
+            | Playstate 
+            p#playState
+          h4
+            | Position 
+            p#position

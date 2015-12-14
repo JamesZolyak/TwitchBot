@@ -1,0 +1,18 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    a(href="/login")
+      img#logo(src="/assets/img/face.png", alt="face logo")
+    .navlink
+      a(href="/auth/twitchtv") Home
+      a(href="/logout") Log out
+  section#messages
+    h2 Messages On Stream
+    if !messages || messages.length == 0
+      div.messages
+        h3.message No messages yet
+    else
+      each val in messages
+        div.message #{val.username}: #{val.message}

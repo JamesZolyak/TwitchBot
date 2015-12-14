@@ -1,0 +1,11 @@
+#lead {
+  float: right;
+  display: block;
+  width: 50%;
+}
+
+#login {
+  float: left;
+  display: block;
+  width: 50%;
+}

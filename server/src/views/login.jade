@@ -1,0 +1,12 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    a(href="/login")
+      img#logo(src="/assets/img/face.png", alt="face logo")
+  section#login
+    .navlink
+      a(href="/auth/twitchtv") Sign In
+block scripts
+    script(src="/assets/client.js")
